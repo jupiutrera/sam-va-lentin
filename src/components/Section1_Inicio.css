@@ -1,0 +1,125 @@
+.section-inicio {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: var(--color-white);
+}
+
+.title-main {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  -webkit-text-stroke: 2px var(--color-primary);
+  text-stroke: 2px var(--color-primary);
+  paint-order: stroke fill;
+}
+
+.title-name {
+  font-family: var(--font-title);
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  -webkit-text-stroke: 2.5px var(--color-primary);
+  text-stroke: 2.5px var(--color-primary);
+  paint-order: stroke fill;
+}
+
+/* Corazones Animados */
+.hearts-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  bottom: -60px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  transform: rotate(45deg);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+              0 0 40px rgba(255, 23, 68, 0.4);
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+}
+
+.heart::before {
+  left: -25px;
+}
+
+.heart::after {
+  top: -25px;
+}
+
+@media (max-width: 768px) {
+  .title-main {
+    font-size: 2.3rem;
+  }
+
+  .title-name {
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .heart {
+    width: 45px;
+    height: 45px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 45px;
+    height: 45px;
+  }
+
+  .heart::before {
+    left: -22.5px;
+  }
+
+  .heart::after {
+    top: -22.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-main {
+    font-size: 1.8rem;
+  }
+
+  .title-name {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .heart {
+    width: 40px;
+    height: 40px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 40px;
+    height: 40px;
+  }
+
+  .heart::before {
+    left: -20px;
+  }
+
+  .heart::after {
+    top: -20px;
+  }
+}
