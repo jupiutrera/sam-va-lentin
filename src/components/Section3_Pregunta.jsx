@@ -150,18 +150,10 @@ const Section3_Pregunta = ({ onNext }) => {
               ref={noButtonRef}
               className="btn-no-v2"
               type="button"
-              onMouseEnter={handleNoAttempt}
-              onTouchStart={(e) => {
+              onPointerEnter={(e) => {
                 e.preventDefault()
                 e.stopPropagation()
                 handleNoAttempt(e)
-                return false
-              }}
-              onPointerDown={(e) => {
-                e.preventDefault()
-                e.stopPropagation()
-                handleNoAttempt(e)
-                return false
               }}
               onClick={(e) => {
                 e.preventDefault()
