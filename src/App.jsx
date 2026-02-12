@@ -32,6 +32,11 @@ function App() {
   // Navegación con teclado
   useEffect(() => {
     const handleKeyPress = (e) => {
+      // BLOQUEAR teclas en la sección 3 (pregunta) - solo se puede avanzar con botón "Sí"
+      if (currentSection === 2 && (e.key === 'ArrowRight' || e.key === 'ArrowDown')) {
+        return
+      }
+
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSection()
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSection()
     }
@@ -57,6 +62,11 @@ function App() {
       const touchEndX = e.changedTouches[0].clientX
       const diffY = touchStartY - touchEndY
       const diffX = touchStartX - touchEndX
+
+      // BLOQUEAR SWIPE en la sección 3 (pregunta) - solo se puede avanzar con botón "Sí"
+      if (currentSection === 2) {
+        return
+      }
 
       // Solo detectar swipe vertical significativo
       if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 70) {
@@ -123,25 +133,27 @@ function App() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Indicadores de sección */}
-      <div className="section-indicators">
-        {[...Array(totalSections)].map((_, index) => (
-          <button
-            key={index}
-            className={`indicator ${index === currentSection ? 'active' : ''}`}
-            onClick={() => goToSection(index)}
-            aria-label={`Ir a sección ${index + 1}`}
-          />
-        ))}
-      </div>
+      {/* Indicadores de sección - Ocultos en sección pregunta */}
+      {currentSection !== 2 && (
+        <div className="section-indicators">
+          {[...Array(totalSections)].map((_, index) => (
+            <button
+              key={index}
+              className={`indicator ${index === currentSection ? 'active' : ''}`}
+              onClick={() => goToSection(index)}
+              aria-label={`Ir a sección ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
 
-      {/* Botones de navegación para desktop */}
-      {currentSection > 0 && (
+      {/* Botones de navegación para desktop - Ocultos en sección pregunta */}
+      {currentSection > 0 && currentSection !== 2 && (
         <button className="nav-button prev" onClick={prevSection} aria-label="Sección anterior">
           ←
         </button>
       )}
-      {currentSection < totalSections - 1 && (
+      {currentSection < totalSections - 1 && currentSection !== 2 && (
         <button className="nav-button next" onClick={nextSection} aria-label="Siguiente sección">
           →
         </button>

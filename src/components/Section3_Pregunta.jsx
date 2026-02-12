@@ -34,7 +34,12 @@ const Section3_Pregunta = ({ onNext }) => {
   }
 
   // Manejar intento de click en "No"
-  const handleNoAttempt = () => {
+  const handleNoAttempt = (e) => {
+    if (e) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+
     if (noCount >= 10) return
 
     addHeart()
@@ -138,16 +143,31 @@ const Section3_Pregunta = ({ onNext }) => {
             <motion.button
               ref={noButtonRef}
               className="btn-no-v2"
-              onPointerEnter={handleNoAttempt}
+              type="button"
+              onMouseEnter={handleNoAttempt}
+              onTouchStart={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                handleNoAttempt(e)
+                return false
+              }}
               onPointerDown={(e) => {
                 e.preventDefault()
-                handleNoAttempt()
+                e.stopPropagation()
+                handleNoAttempt(e)
+                return false
+              }}
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                return false
               }}
               style={{
                 scale: noSize,
                 opacity: Math.max(0.3, 1 - noCount * 0.08),
                 '--move-x': '0px',
-                '--move-y': '0px'
+                '--move-y': '0px',
+                pointerEvents: 'auto'
               }}
             >
               No
