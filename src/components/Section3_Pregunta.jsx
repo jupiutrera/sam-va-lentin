@@ -7,6 +7,7 @@ const Section3_Pregunta = ({ onNext }) => {
   const [currentMessage, setCurrentMessage] = useState('')
   const [hearts, setHearts] = useState([])
   const noButtonRef = useRef(null)
+  const lastTriggerTime = useRef(0)
 
   // Mensajes progresivos
   const messages = [
@@ -41,6 +42,11 @@ const Section3_Pregunta = ({ onNext }) => {
     }
 
     if (noCount >= 10) return
+
+    // Cooldown de 400ms para evitar múltiples activaciones
+    const now = Date.now()
+    if (now - lastTriggerTime.current < 400) return
+    lastTriggerTime.current = now
 
     addHeart()
     setNoCount(prev => prev + 2)
