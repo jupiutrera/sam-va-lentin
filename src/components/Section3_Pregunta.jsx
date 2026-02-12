@@ -35,6 +35,10 @@ const Section3_Pregunta = ({ onNext }) => {
 
   // Mover el botón "No"
   const moveNoButton = (event) => {
+    // Prevenir cualquier comportamiento por defecto
+    event.preventDefault()
+    event.stopPropagation()
+
     if (containerRef.current && attempts < 10) {
       const rect = containerRef.current.getBoundingClientRect()
 
@@ -196,13 +200,20 @@ const Section3_Pregunta = ({ onNext }) => {
             <motion.button
               className="btn-no-new"
               onMouseEnter={moveNoButton}
+              onMouseDown={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                moveNoButton(e)
+              }}
               onTouchStart={(e) => {
                 e.preventDefault()
+                e.stopPropagation()
                 moveNoButton(e)
               }}
               onClick={(e) => {
                 e.preventDefault()
-                moveNoButton(e)
+                e.stopPropagation()
+                return false
               }}
               animate={noButtonControls}
               style={{
