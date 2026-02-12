@@ -1,262 +1,283 @@
-.section-pregunta {
-  background: linear-gradient(135deg, #FFE5E5 0%, #FFF0F5 50%, #FFE5F1 100%);
+/* ============================================
+   SECCIÓN PREGUNTA V2 - Arquitectura Mejorada
+   ============================================ */
+
+.section-pregunta-v2 {
+  background: linear-gradient(135deg, #ffe5f0 0%, #fff0f8 50%, #ffe5eb 100%);
   position: relative;
   overflow: hidden;
 }
 
-/* Efecto de partículas de fondo */
-.section-pregunta::before {
+/* Fondo decorativo */
+.section-pregunta-v2::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(255, 23, 68, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(216, 27, 96, 0.05) 0%, transparent 50%);
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 23, 68, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(216, 27, 96, 0.03) 0%, transparent 40%);
   pointer-events: none;
+  z-index: 0;
 }
 
-.question-container {
-  margin-bottom: 3rem;
+/* Contenedor de contenido */
+.content-v2 {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
 }
 
-.section-pregunta .section-title {
-  font-size: 2.8rem;
-  color: var(--color-primary);
-  margin-bottom: 2rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.question-text {
+/* Título */
+.title-v2 {
   font-family: var(--font-title);
-  font-size: 2.2rem;
-  color: var(--color-secondary);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
   margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Pregunta principal */
+.question-v2 {
+  font-family: var(--font-title);
+  font-size: 2rem;
   font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+  text-align: center;
   line-height: 1.4;
 }
 
 /* Mensaje dinámico */
-.dynamic-message {
-  font-size: 1.5rem;
-  color: var(--color-primary);
+.message-v2 {
+  font-size: 1.4rem;
   font-weight: 600;
-  margin-top: 1.5rem;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(255, 23, 68, 0.2);
-  backdrop-filter: blur(10px);
-}
-
-/* Contenedor de botones mejorado */
-.buttons-container-new {
-  position: relative;
-  min-height: 400px;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(255, 23, 68, 0.15);
+  min-height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 3rem 2rem;
 }
 
-/* Botón SÍ - Diseño mejorado */
-.btn-yes-new {
-  padding: 1.5rem 4rem;
-  font-size: 1.8rem;
+/* Contenedor de botones */
+.buttons-wrapper-v2 {
+  position: relative;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* Botón SÍ */
+.btn-yes-v2 {
+  padding: 1.2rem 3.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  border: none;
-  border-radius: 60px;
-  cursor: pointer;
   font-family: var(--font-body);
-  background: linear-gradient(135deg, #FF1744 0%, #F50057 50%, #FF1744 100%);
-  background-size: 200% 100%;
-  color: var(--color-white);
+  color: white;
+  background: linear-gradient(135deg, #ff1744 0%, #f50057 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
   box-shadow:
-    0 10px 40px rgba(255, 23, 68, 0.4),
-    0 0 0 4px rgba(255, 255, 255, 0.3),
-    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    0 8px 25px rgba(255, 23, 68, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   z-index: 10;
-  animation: shimmer 3s ease-in-out infinite;
-  transition: all 0.3s ease;
+  transform-origin: center;
 }
 
-.btn-yes-new:hover {
-  animation: shimmer 1s ease-in-out infinite, bounce 0.5s ease;
+.btn-yes-v2:active {
+  box-shadow: 0 4px 15px rgba(255, 23, 68, 0.4);
 }
 
-@keyframes shimmer {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Botón NO - Diseño mejorado */
-.btn-no-new {
-  padding: 1rem 2.5rem;
-  font-size: 1.2rem;
+/* Botón NO */
+.btn-no-v2 {
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  border: 2px solid rgba(150, 150, 150, 0.5);
+  font-family: var(--font-body);
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(120, 120, 120, 0.7);
+  border: 2px solid rgba(100, 100, 100, 0.4);
   border-radius: 40px;
   cursor: pointer;
-  font-family: var(--font-body);
-  background: rgba(150, 150, 150, 0.6);
-  color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  left: 50%;
-  top: 60%;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+  transition: all 0.25s ease;
+  transform-origin: center;
+  position: relative;
+
+  /* Variables CSS para movimiento */
+  transform:
+    translate(var(--move-x, 0), var(--move-y, 0))
+    scale(var(--scale, 1));
 }
 
-.btn-no-new:hover {
-  border-color: rgba(100, 100, 100, 0.7);
+.btn-no-v2:hover {
+  background: rgba(100, 100, 100, 0.8);
+}
+
+/* Mensaje de rendición */
+.surrender-message {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.95));
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(255, 23, 68, 0.25);
+  margin-top: 1rem;
+}
+
+/* Contador */
+.counter-v2 {
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-text-light);
+  margin-top: 1.5rem;
 }
 
 /* Corazones flotantes */
-.floating-heart-effect {
+.hearts-container {
   position: fixed;
-  font-size: 2.5rem;
+  inset: 0;
   pointer-events: none;
   z-index: 100;
-  filter: drop-shadow(0 0 10px rgba(255, 23, 68, 0.6));
 }
 
-/* Mensaje final */
-.final-message {
-  font-size: 1.8rem;
-  color: var(--color-primary);
-  font-weight: 700;
-  text-align: center;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 25px;
-  box-shadow: 0 8px 30px rgba(255, 23, 68, 0.3);
-  margin-top: 2rem;
+.heart-float {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.5));
 }
 
-/* Contador de intentos */
-.attempts-counter {
-  margin-top: 2rem;
-  font-size: 1.1rem;
-  color: var(--color-text-light);
-  font-style: italic;
-  text-align: center;
-}
-
-/* Responsive - Tablet */
+/* ============================================
+   RESPONSIVE - Tablet
+   ============================================ */
 @media (max-width: 768px) {
-  .section-pregunta .section-title {
-    font-size: 2.3rem;
+  .title-v2 {
+    font-size: 2.4rem;
   }
 
-  .question-text {
-    font-size: 1.9rem;
-    margin-bottom: 1.2rem;
-  }
-
-  .dynamic-message {
-    font-size: 1.3rem;
-    padding: 0.9rem 1.5rem;
-  }
-
-  .buttons-container-new {
-    min-height: 350px;
-    padding: 2.5rem 1.5rem;
-  }
-
-  .btn-yes-new {
-    padding: 1.3rem 3.5rem;
-    font-size: 1.6rem;
-  }
-
-  .btn-no-new {
-    padding: 0.9rem 2rem;
-    font-size: 1.1rem;
-  }
-
-  .final-message {
-    font-size: 1.6rem;
-    padding: 1.5rem;
-  }
-
-  .attempts-counter {
-    font-size: 1rem;
-  }
-}
-
-/* Responsive - Mobile */
-@media (max-width: 480px) {
-  .section-pregunta .section-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .question-text {
-    font-size: 1.6rem;
-    line-height: 1.3;
+  .question-v2 {
+    font-size: 1.8rem;
     padding: 0 1rem;
   }
 
-  .dynamic-message {
-    font-size: 1.15rem;
-    padding: 0.8rem 1.2rem;
-    margin-top: 1rem;
+  .message-v2 {
+    font-size: 1.3rem;
+    padding: 0.9rem 1.3rem;
+    min-height: 3rem;
   }
 
-  .buttons-container-new {
+  .buttons-wrapper-v2 {
     min-height: 320px;
-    padding: 2rem 1rem;
+    gap: 1.8rem;
   }
 
-  .btn-yes-new {
-    padding: 1.2rem 3rem;
-    font-size: 1.4rem;
+  .btn-yes-v2 {
+    padding: 1.1rem 3rem;
+    font-size: 1.5rem;
   }
 
-  .btn-no-new {
-    padding: 0.8rem 1.8rem;
-    font-size: 1rem;
+  .btn-no-v2 {
+    padding: 0.8rem 2rem;
+    font-size: 1.05rem;
   }
 
-  .floating-heart-effect {
-    font-size: 2rem;
+  .surrender-message {
+    font-size: 1.5rem;
+    padding: 1.3rem 1.8rem;
   }
 
-  .final-message {
-    font-size: 1.4rem;
-    padding: 1.2rem;
-  }
-
-  .attempts-counter {
+  .counter-v2 {
     font-size: 0.95rem;
+  }
+
+  .heart-float {
+    font-size: 2rem;
   }
 }
 
-/* Animación adicional para el contenedor */
-@keyframes fadeInUp {
+/* ============================================
+   RESPONSIVE - Mobile
+   ============================================ */
+@media (max-width: 480px) {
+  .content-v2 {
+    padding: 1.5rem 1rem;
+  }
+
+  .title-v2 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .question-v2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .message-v2 {
+    font-size: 1.15rem;
+    padding: 0.8rem 1.2rem;
+    min-height: 2.8rem;
+  }
+
+  .buttons-wrapper-v2 {
+    min-height: 300px;
+    gap: 1.5rem;
+  }
+
+  .btn-yes-v2 {
+    padding: 1rem 2.5rem;
+    font-size: 1.3rem;
+  }
+
+  .btn-no-v2 {
+    padding: 0.75rem 1.8rem;
+    font-size: 1rem;
+  }
+
+  .surrender-message {
+    font-size: 1.3rem;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .counter-v2 {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .heart-float {
+    font-size: 1.8rem;
+  }
+}
+
+/* ============================================
+   ANIMACIONES
+   ============================================ */
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -264,6 +285,14 @@
   }
 }
 
-.question-container {
-  animation: fadeInUp 0.8s ease-out;
+.content-v2 {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Prevenir selección de texto en botones */
+.btn-yes-v2,
+.btn-no-v2 {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
