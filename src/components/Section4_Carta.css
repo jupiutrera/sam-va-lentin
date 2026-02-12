@@ -1,0 +1,70 @@
+.section-carta {
+  background: var(--color-cream);
+}
+
+.letter {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.letter-content {
+  text-align: left;
+  margin: 2rem 0;
+}
+
+.letter-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+.letter-content p:first-child {
+  font-style: italic;
+  color: var(--color-secondary);
+}
+
+.signature {
+  text-align: right;
+  font-family: var(--font-title);
+  font-style: italic;
+  color: var(--color-primary);
+  margin-top: 2rem !important;
+}
+
+@media (max-width: 768px) {
+  .letter {
+    padding: 2rem 1.5rem;
+  }
+
+  .letter-content {
+    margin: 1.5rem 0;
+  }
+
+  .letter-content p {
+    font-size: 1rem;
+    margin-bottom: 1.3rem;
+    line-height: 1.7;
+  }
+
+  .signature {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .letter-content p {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .signature {
+    font-size: 1rem;
+  }
+}
