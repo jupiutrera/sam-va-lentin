@@ -3,59 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sam va Valentín - Página de Muestra</title>
+    <meta name="description" content="Feliz San Valentín Paula ❤️">
+    <title>Feliz San Valentín Paula</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🌟 Bienvenido a Sam va Valentín 🌟</h1>
-            <p class="subtitle">Una página web de muestra creada con GitHub Pages</p>
-        </header>
+    <!-- Sección 1: Vista Inicial -->
+    <section id="inicio" class="section active">
+        <div class="hearts-bg">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+        <div class="content">
+            <h1 class="title-main">Feliz San Valentín</h1>
+            <h2 class="title-name">Paula</h2>
+            <button class="btn-primary" onclick="navigateToSection('cronograma')">Continuar ❤️</button>
+        </div>
+    </section>
 
-        <main>
-            <section class="card">
-                <h2>Sobre este proyecto</h2>
-                <p>Esta es una página web de demostración alojada en GitHub Pages. Puedes compartir el enlace con cualquiera y podrán acceder a ella desde cualquier navegador.</p>
-            </section>
-
-            <section class="card">
-                <h2>Características</h2>
-                <ul>
-                    <li>✅ Diseño responsive (se adapta a móviles y tablets)</li>
-                    <li>✅ Estilos modernos con CSS</li>
-                    <li>✅ Alojamiento gratuito con GitHub Pages</li>
-                    <li>✅ Fácil de actualizar y personalizar</li>
-                </ul>
-            </section>
-
-            <section class="card">
-                <h2>Tecnologías utilizadas</h2>
-                <div class="tech-grid">
-                    <div class="tech-item">
-                        <span class="tech-icon">📄</span>
-                        <p>HTML5</p>
-                    </div>
-                    <div class="tech-item">
-                        <span class="tech-icon">🎨</span>
-                        <p>CSS3</p>
-                    </div>
-                    <div class="tech-item">
-                        <span class="tech-icon">📦</span>
-                        <p>GitHub Pages</p>
+    <!-- Sección 2: Cronograma -->
+    <section id="cronograma" class="section">
+        <div class="content">
+            <h2 class="section-title">Nuestro Tiempo Juntos</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">❤️</div>
+                        <h3>Primer Encuentro</h3>
+                        <p class="date">Enero 2024</p>
+                        <p>El día que nuestras miradas se cruzaron por primera vez y supe que algo especial comenzaba.</p>
                     </div>
                 </div>
-            </section>
 
-            <section class="card cta">
-                <h2>¿Quieres personalizar esta página?</h2>
-                <p>Puedes editar el archivo <code>index.html</code> y <code>styles.css</code> para cambiar el contenido y el diseño a tu gusto.</p>
-            </section>
-        </main>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">💕</div>
+                        <h3>Primera Cita</h3>
+                        <p class="date">Febrero 2024</p>
+                        <p>Una tarde mágica llena de risas, nervios y la certeza de que quería verte de nuevo.</p>
+                    </div>
+                </div>
 
-        <footer>
-            <p>&copy; 2026 Sam va Valentín | Hecho con GitHub Pages</p>
-        </footer>
-    </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">💋</div>
+                        <h3>Primer Beso</h3>
+                        <p class="date">Marzo 2024</p>
+                        <p>Bajo las estrellas, el momento perfecto que quedará grabado en mi memoria para siempre.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">✈️</div>
+                        <h3>Primer Viaje Juntos</h3>
+                        <p class="date">Junio 2024</p>
+                        <p>Aventuras, descubrimientos y la felicidad de explorar el mundo a tu lado.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">🌟</div>
+                        <h3>Cada Día Contigo</h3>
+                        <p class="date">Presente</p>
+                        <p>Cada momento a tu lado es especial, cada día contigo es un regalo.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-primary" onclick="navigateToSection('pregunta')">Siguiente ❤️</button>
+        </div>
+    </section>
+
+    <!-- Sección 3: Pregunta Interactiva -->
+    <section id="pregunta" class="section">
+        <div class="content">
+            <h2 class="section-title">Una Pregunta Importante</h2>
+            <p class="question-text">¿Quieres ser mi San Valentín?</p>
+            <div class="buttons-container">
+                <button class="btn-yes" onclick="navigateToSection('carta')">¡Sí! 💖</button>
+                <button class="btn-no" id="btnNo">No</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Carta de Amor -->
+    <section id="carta" class="section">
+        <div class="content">
+            <div class="letter">
+                <h2 class="section-title">Para Ti</h2>
+                <div class="letter-content">
+                    <p>Mi querida Paula,</p>
+
+                    <p>En este día especial quiero que sepas lo importante que eres para mí. Desde el momento en que entraste en mi vida, todo cambió. Tu sonrisa ilumina mis días, tu risa es mi melodía favorita y tu presencia es el mejor regalo que podría pedir.</p>
+
+                    <p>Contigo he aprendido que el amor verdadero existe, que la felicidad se encuentra en los pequeños momentos compartidos y que cada día a tu lado es una nueva aventura. Eres mi mejor amiga, mi cómplice, mi inspiración y mi hogar.</p>
+
+                    <p>Gracias por ser exactamente como eres, por tu paciencia, tu cariño y por elegirme cada día. Prometo seguir cuidando de este amor que hemos construido juntos, de hacerte sonreír incluso en los días grises y de estar a tu lado siempre que me necesites.</p>
+
+                    <p>Este San Valentín es solo una excusa más para recordarte lo mucho que te amo, pero la verdad es que te lo diré cada día, porque eres y serás siempre mi persona favorita.</p>
+
+                    <p class="signature">Con todo mi amor,<br>Tu enamorado</p>
+                </div>
+                <button class="btn-primary" onclick="navigateToSection('quiz')">Continuar ❤️</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 5: Quiz -->
+    <section id="quiz" class="section">
+        <div class="content">
+            <h2 class="section-title">¿Cuánto Me Conoces?</h2>
+            <div id="quiz-container">
+                <div class="quiz-question" id="question-container">
+                    <!-- Las preguntas se cargarán dinámicamente con JavaScript -->
+                </div>
+                <div class="quiz-navigation">
+                    <button class="btn-secondary" id="prevBtn" onclick="previousQuestion()" style="display: none;">← Anterior</button>
+                    <button class="btn-secondary" id="nextBtn" onclick="nextQuestion()">Siguiente →</button>
+                    <button class="btn-primary" id="submitBtn" onclick="submitQuiz()" style="display: none;">Ver Resultado 💖</button>
+                </div>
+            </div>
+            <div id="quiz-result" style="display: none;">
+                <h3 id="result-title"></h3>
+                <p id="result-message"></p>
+                <p class="score" id="result-score"></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
