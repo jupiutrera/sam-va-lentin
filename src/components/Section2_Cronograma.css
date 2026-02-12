@@ -89,6 +89,10 @@
 }
 
 @media (max-width: 768px) {
+  .timeline-item {
+    margin-bottom: 3.5rem;
+  }
+
   .timeline::before {
     left: 25px;
   }
@@ -96,7 +100,7 @@
   .timeline-content {
     width: calc(100% - 70px);
     margin-left: 70px !important;
-    padding: 1.2rem;
+    padding: 1.3rem;
   }
 
   .timeline-item.left .timeline-content,

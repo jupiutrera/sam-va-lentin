@@ -92,13 +92,15 @@
   }
 
   .quiz-option {
-    padding: 1.1rem 1.3rem;
+    padding: 1.3rem 1.5rem;
     font-size: 1rem;
+    min-height: 60px;
   }
 
   .quiz-navigation {
     flex-direction: row;
     justify-content: space-between;
+    gap: 1.2rem;
   }
 
   .quiz-navigation .btn-secondary {

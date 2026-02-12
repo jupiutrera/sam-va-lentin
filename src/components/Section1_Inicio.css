@@ -8,9 +8,13 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  -webkit-text-stroke: 2px var(--color-primary);
-  text-stroke: 2px var(--color-primary);
-  paint-order: stroke fill;
+  text-shadow:
+    3px 3px 0 var(--color-primary),
+    -1px -1px 0 var(--color-primary),
+    1px -1px 0 var(--color-primary),
+    -1px 1px 0 var(--color-primary),
+    1px 1px 0 var(--color-primary),
+    0 0 10px rgba(255, 23, 68, 0.5);
 }
 
 .title-name {
@@ -18,9 +22,13 @@
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 3rem;
-  -webkit-text-stroke: 2.5px var(--color-primary);
-  text-stroke: 2.5px var(--color-primary);
-  paint-order: stroke fill;
+  text-shadow:
+    3px 3px 0 var(--color-primary),
+    -1px -1px 0 var(--color-primary),
+    1px -1px 0 var(--color-primary),
+    -1px 1px 0 var(--color-primary),
+    1px 1px 0 var(--color-primary),
+    0 0 15px rgba(255, 23, 68, 0.6);
 }
 
 /* Corazones Animados */

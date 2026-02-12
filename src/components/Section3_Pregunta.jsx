@@ -23,8 +23,8 @@ const Section3_Pregunta = ({ onNext }) => {
   ]
 
   // Calcular tamaños dinámicos
-  const yesSize = Math.min(1 + noCount * 0.2, 3) // Crece hasta 3x
-  const noSize = Math.max(0.4, 1 - noCount * 0.1) // Se reduce hasta 0.4x
+  const yesSize = Math.min(1 + noCount * 0.15, 2.5) // Crece hasta 2.5x (más controlado en móvil)
+  const noSize = Math.max(0.4, 1 - noCount * 0.08) // Se reduce hasta 0.4x
 
   // Crear corazón flotante
   const addHeart = () => {
@@ -43,7 +43,7 @@ const Section3_Pregunta = ({ onNext }) => {
     if (noCount >= 10) return
 
     addHeart()
-    setNoCount(prev => prev + 1)
+    setNoCount(prev => prev + 2)
     setCurrentMessage(messages[Math.min(noCount, messages.length - 1)])
 
     // Ocultar mensaje después de 2 segundos
