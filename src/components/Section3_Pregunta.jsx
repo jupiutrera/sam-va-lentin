@@ -49,7 +49,7 @@ const Section3_Pregunta = ({ onNext }) => {
     lastTriggerTime.current = now
 
     addHeart()
-    setNoCount(prev => prev + 2)
+    setNoCount(prev => prev + 1)
     setCurrentMessage(messages[Math.min(noCount, messages.length - 1)])
 
     // Ocultar mensaje después de 2 segundos
