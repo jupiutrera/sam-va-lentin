@@ -4,98 +4,53 @@ import './Section3_Pregunta.css'
 
 const Section3_Pregunta = ({ onNext }) => {
   const [noCount, setNoCount] = useState(0)
-  const [currentMessage, setCurrentMessage] = useState('')
-  const [hearts, setHearts] = useState([])
+  const [showMessage, setShowMessage] = useState(false)
+  const [noPosition, setNoPosition] = useState({ x: 0, y: 0 })
   const noButtonRef = useRef(null)
-  const lastTriggerTime = useRef(0)
 
-  // Mensajes progresivos
   const messages = [
     "¿Segura? 🥺",
     "Piénsalo mejor 💕",
     "Vamos... di que sí 🙏",
     "No seas cruel 😢",
     "¡Por favor! 💝",
-    "Solo un sí... 🌟",
     "¿Por qué no? ❤️",
     "¡Dale! 😊",
-    "Casi me convences... 😅",
-    "¡Ya no puedes escapar! 🥰"
+    "Ya casi... 😅",
+    "¡Última oportunidad! 🥰"
   ]
 
-  // Calcular tamaños dinámicos
-  const yesSize = Math.min(1 + noCount * 0.15, 2.5) // Crece hasta 2.5x (más controlado en móvil)
-  const noSize = Math.max(0.4, 1 - noCount * 0.08) // Se reduce hasta 0.4x
+  const moveButton = () => {
+    // Calcular límites de la pantalla
+    const maxX = window.innerWidth * 0.35  // 35% del ancho
+    const maxY = window.innerHeight * 0.25 // 25% del alto
 
-  // Crear corazón flotante
-  const addHeart = () => {
-    const id = Date.now()
-    setHearts(prev => [...prev, id])
-    setTimeout(() => setHearts(prev => prev.filter(h => h !== id)), 2000)
+    // Generar posición aleatoria
+    const newX = (Math.random() - 0.5) * maxX
+    const newY = (Math.random() - 0.5) * maxY
+
+    setNoPosition({ x: newX, y: newY })
   }
 
-  // Manejar intento de click en "No"
-  const handleNoAttempt = (e) => {
-    if (e) {
-      e.preventDefault()
-      e.stopPropagation()
-    }
-
-    if (noCount >= 10) return
-
-    // Cooldown de 400ms para evitar múltiples activaciones
-    const now = Date.now()
-    if (now - lastTriggerTime.current < 400) return
-    lastTriggerTime.current = now
-
-    addHeart()
-    setNoCount(prev => prev + 1)
-    setCurrentMessage(messages[Math.min(noCount, messages.length - 1)])
-
-    // Ocultar mensaje después de 2 segundos
-    setTimeout(() => setCurrentMessage(''), 2000)
-
-    // Mover botón a posición aleatoria
-    if (noButtonRef.current) {
-      const container = noButtonRef.current.parentElement
-      const containerRect = container.getBoundingClientRect()
-
-      // Calcular nueva posición aleatoria
-      const maxX = containerRect.width * 0.4
-      const maxY = containerRect.height * 0.3
-
-      const newX = (Math.random() - 0.5) * maxX
-      const newY = (Math.random() - 0.5) * maxY
-
-      noButtonRef.current.style.setProperty('--move-x', `${newX}px`)
-      noButtonRef.current.style.setProperty('--move-y', `${newY}px`)
+  const handleNoClick = () => {
+    if (noCount < 9) {
+      setNoCount(noCount + 1)
+      setShowMessage(true)
+      moveButton()
+      setTimeout(() => setShowMessage(false), 2000)
     }
   }
+
+  // Calcular tamaños
+  const yesSize = 1 + noCount * 0.2
+  const noSize = Math.max(0.4, 1 - noCount * 0.1)
+  const noOpacity = Math.max(0.3, 1 - noCount * 0.1)
 
   return (
-    <section className="section section-pregunta-v2">
-      {/* Corazones flotantes */}
-      <div className="hearts-container">
-        <AnimatePresence>
-          {hearts.map(id => (
-            <motion.div
-              key={id}
-              className="heart-float"
-              initial={{ scale: 0, y: 0, opacity: 1 }}
-              animate={{ scale: 1.5, y: -150, opacity: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 2 }}
-            >
-              💖
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
-
-      <div className="content-v2">
-        {/* Título */}
+    <section className="section section-pregunta">
+      <div className="pregunta-content">
         <motion.h2
-          className="title-v2"
+          className="pregunta-title"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -103,69 +58,60 @@ const Section3_Pregunta = ({ onNext }) => {
           La Pregunta Más Importante
         </motion.h2>
 
-        {/* Pregunta principal */}
         <motion.p
-          className="question-v2"
+          className="pregunta-question"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
         >
           ¿Quieres ser mi San Valentín? 💝
         </motion.p>
 
         {/* Mensaje dinámico */}
-        <AnimatePresence mode="wait">
-          {currentMessage && (
-            <motion.p
-              className="message-v2"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              key={currentMessage}
-            >
-              {currentMessage}
-            </motion.p>
-          )}
-        </AnimatePresence>
+        <div className="message-container">
+          <AnimatePresence mode="wait">
+            {showMessage && (
+              <motion.p
+                className="pregunta-message"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 0.3 }}
+              >
+                {messages[Math.min(noCount - 1, messages.length - 1)]}
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </div>
 
-        {/* Contenedor de botones */}
-        <div className="buttons-wrapper-v2">
-          {/* Botón SÍ */}
+        {/* Botones */}
+        <div className="pregunta-buttons">
           <motion.button
-            className="btn-yes-v2"
+            className="btn-yes"
             onClick={onNext}
-            style={{
-              scale: yesSize,
-              fontSize: `${1 + noCount * 0.1}rem`
-            }}
+            style={{ transform: `scale(${yesSize})` }}
             whileHover={{ scale: yesSize * 1.05 }}
-            whileTap={{ scale: yesSize * 0.98 }}
+            whileTap={{ scale: yesSize * 0.95 }}
           >
             ¡Sí! 💖
           </motion.button>
 
-          {/* Botón NO */}
-          {noCount < 10 ? (
+          {noCount < 9 ? (
             <motion.button
               ref={noButtonRef}
-              className="btn-no-v2"
-              type="button"
-              onPointerEnter={(e) => {
-                e.preventDefault()
-                e.stopPropagation()
-                handleNoAttempt(e)
-              }}
-              onClick={(e) => {
-                e.preventDefault()
-                e.stopPropagation()
-                return false
-              }}
-              style={{
+              className="btn-no"
+              onMouseEnter={moveButton}
+              onClick={handleNoClick}
+              animate={{
+                x: noPosition.x,
+                y: noPosition.y,
                 scale: noSize,
-                opacity: Math.max(0.3, 1 - noCount * 0.08),
-                '--move-x': '0px',
-                '--move-y': '0px',
-                pointerEvents: 'auto'
+                opacity: noOpacity
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 300,
+                damping: 20
               }}
             >
               No
@@ -175,21 +121,21 @@ const Section3_Pregunta = ({ onNext }) => {
               className="surrender-message"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ type: 'spring', stiffness: 200 }}
+              transition={{ type: 'spring', duration: 0.5 }}
             >
               Sabía que dirías que sí ✨
             </motion.p>
           )}
         </div>
 
-        {/* Contador (opcional) */}
-        {noCount > 0 && noCount < 10 && (
+        {/* Contador */}
+        {noCount > 0 && noCount < 9 && (
           <motion.p
-            className="counter-v2"
+            className="pregunta-counter"
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.7 }}
           >
-            Intentos de escape: {noCount} 😏
+            Intentos: {noCount} 😏
           </motion.p>
         )}
       </div>
