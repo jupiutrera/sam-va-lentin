@@ -70,7 +70,7 @@ const Section1_Inicio = ({ onNext }) => {
           initial="hidden"
           animate="visible"
         >
-          Feliz San Valentín
+          Feliz Primer San Valentín
         </motion.h1>
 
         <motion.h2
