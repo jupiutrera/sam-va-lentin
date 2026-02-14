@@ -8,21 +8,37 @@ const Section5_Quiz = () => {
   const [userAnswers, setUserAnswers] = useState([])
   const [showResult, setShowResult] = useState(false)
   const [score, setScore] = useState(0)
+  const [showFeedback, setShowFeedback] = useState(false)
 
   const selectAnswer = (answerIndex) => {
     const newAnswers = [...userAnswers]
     newAnswers[currentQuestion] = answerIndex
     setUserAnswers(newAnswers)
+    setShowFeedback(false)
+  }
+
+  const isAnswerCorrect = (questionIndex, answerIndex) => {
+    const question = quizData[questionIndex]
+    if (question.correct === 999) return true
+    if (question.correct === -1) return false
+    return answerIndex === question.correct
   }
 
   const nextQuestion = () => {
-    if (currentQuestion < quizData.length - 1) {
-      setCurrentQuestion(currentQuestion + 1)
+    if (!showFeedback) {
+      setShowFeedback(true)
+      setTimeout(() => {
+        setShowFeedback(false)
+        if (currentQuestion < quizData.length - 1) {
+          setCurrentQuestion(currentQuestion + 1)
+        }
+      }, 1500)
     }
   }
 
   const previousQuestion = () => {
     if (currentQuestion > 0) {
+      setShowFeedback(false)
       setCurrentQuestion(currentQuestion - 1)
     }
   }
@@ -151,6 +167,21 @@ const Section5_Quiz = () => {
                     </motion.div>
                   ))}
                 </div>
+
+                {showFeedback && userAnswers[currentQuestion] !== undefined && (
+                  <motion.div
+                    className={`quiz-feedback ${isAnswerCorrect(currentQuestion, userAnswers[currentQuestion]) ? 'correct' : 'incorrect'}`}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    {isAnswerCorrect(currentQuestion, userAnswers[currentQuestion]) ? (
+                      <span>✅ ¡Correcto!</span>
+                    ) : (
+                      <span>❌ Incorrecto</span>
+                    )}
+                  </motion.div>
+                )}
               </motion.div>
             </AnimatePresence>
 
