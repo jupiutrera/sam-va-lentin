@@ -46,38 +46,25 @@ const Section4_Carta = ({ onNext }) => {
 
           <div className="letter-content">
             <motion.p variants={paragraphVariants}>
-              Mi querida Paula,
+              Hola Paula,
             </motion.p>
 
             <motion.p variants={paragraphVariants}>
-              En este día especial quiero que sepas lo importante que eres para mí.
-              Desde el momento en que entraste en mi vida, todo cambió. Tu sonrisa
-              ilumina mis días, tu risa es mi melodía favorita y tu presencia es el
-              mejor regalo que podría pedir.
+              Contigo he aprendido que el amor existe, y aunque al inicio da un poco de miedo,
+              lo que siento por ti es mucho más grande que el miedo que pueda llegar a sentir.
             </motion.p>
 
             <motion.p variants={paragraphVariants}>
-              Contigo he aprendido que el amor verdadero existe, que la felicidad se
-              encuentra en los pequeños momentos compartidos y que cada día a tu lado
-              es una nueva aventura. Eres mi mejor amiga, mi cómplice, mi inspiración
-              y mi hogar.
+              Gracias por ser exactamente como eres y por quererme por ser como soy.
             </motion.p>
 
             <motion.p variants={paragraphVariants}>
-              Gracias por ser exactamente como eres, por tu paciencia, tu cariño y por
-              elegirme cada día. Prometo seguir cuidando de este amor que hemos construido
-              juntos, de hacerte sonreír incluso en los días grises y de estar a tu lado
-              siempre que me necesites.
-            </motion.p>
-
-            <motion.p variants={paragraphVariants}>
-              Este San Valentín es solo una excusa más para recordarte lo mucho que te amo,
-              pero la verdad es que te lo diré cada día, porque eres y serás siempre mi
-              persona favorita.
+              Este San Valentín es solo una excusa más para recordarte lo mucho que te quiero,
+              pero la verdad es que te lo diré cada día, porque eres mi persona favorita.
             </motion.p>
 
             <motion.p className="signature" variants={paragraphVariants}>
-              Con todo mi amor,<br />Tu enamorado
+              Te quiero,<br />Juan
             </motion.p>
           </div>
 

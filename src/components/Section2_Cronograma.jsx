@@ -8,35 +8,35 @@ const Section2_Cronograma = ({ onNext }) => {
       icon: '❤️',
       title: 'Primer Encuentro',
       date: '29 Noviembre 2025',
-      description: 'Aunque haya sido un primer encuentro para el olvido, para mí será inolvidable',
+      description: 'Aunque haya sido un primer encuentro para el olvido, para mí será inolvidable.',
       position: 'left'
     },
     {
       icon: '💕',
       title: 'Primera Cita',
       date: '5 Diciembre 2025',
-      description: 'Nos dejamos todos los torreznos y nos pusimos a toser como tontos en el restaurante',
+      description: 'Nos dejamos todos los torreznos y nos pusimos a toser como tontos en el restaurante.',
       position: 'right'
     },
     {
       icon: '💝',
       title: 'Día Clave',
       date: '18 Diciembre 2025',
-      description: 'Aquí fue el momento en el que nos empezamos a querer sin saberlo',
+      description: 'Aquí fue el momento en el que nos empezamos a querer sin saberlo.',
       position: 'left'
     },
     {
       icon: '💗',
       title: 'Primer "Te Quiero"',
       date: '20 Enero 2026',
-      description: 'El primero de muchos, te quiero',
+      description: 'El primero de muchos, te quiero.',
       position: 'right'
     },
     {
       icon: '🌟',
       title: 'Empezamos a Salir',
       date: '22 Enero 2026',
-      description: 'Aunque no hay fecha concreta',
+      description: 'Aunque no hay fecha concreta.',
       position: 'left'
     }
   ]
