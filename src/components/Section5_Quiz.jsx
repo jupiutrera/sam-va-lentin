@@ -131,7 +131,7 @@ const Section5_Quiz = () => {
                 exit="exit"
               >
                 <h3>{quizData[currentQuestion].question}</h3>
-                <div className="quiz-options">
+                <div className={`quiz-options ${quizData[currentQuestion].hasImages ? 'with-images' : ''}`}>
                   {quizData[currentQuestion].options.map((option, index) => (
                     <motion.div
                       key={index}
@@ -140,7 +140,14 @@ const Section5_Quiz = () => {
                       whileHover={{ scale: 1.02, x: 5 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      {option}
+                      {typeof option === 'object' && option.image ? (
+                        <div className="option-with-image">
+                          <img src={option.image} alt={option.text} className="option-image" />
+                          <span>{option.text}</span>
+                        </div>
+                      ) : (
+                        option
+                      )}
                     </motion.div>
                   ))}
                 </div>

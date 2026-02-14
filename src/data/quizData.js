@@ -1,8 +1,14 @@
 export const quizData = [
   {
     question: "¿Cuál es mi inicial de agua favorito?",
-    options: ["Mudkip 💧", "Squirtle 🐢", "Piplup 🐧", "Quaxly 🦆"],
-    correct: 0
+    options: [
+      { text: "Mudkip", image: "/img/mudkip.png" },
+      { text: "Squirtle", image: "/img/Squirtle.webp" },
+      { text: "Piplup", image: "/img/piplup.png" },
+      { text: "Quaxly", image: "/img/quaxly.png" }
+    ],
+    correct: 0,
+    hasImages: true
   },
   {
     question: "¿Cuál es mi comida favorita?",
