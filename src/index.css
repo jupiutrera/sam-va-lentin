@@ -51,24 +51,46 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  overflow: hidden; /* Sin scroll - solo navegación con botones */
+  overflow-y: auto; /* Permitir scroll DENTRO de la sección */
+  overflow-x: hidden; /* Sin scroll horizontal */
 }
 
 /* ========================================
    Estilos Comunes para Secciones
    ======================================== */
 .section {
-  height: 100vh; /* Altura fija - sin scroll */
+  min-height: 100vh; /* Mínimo 100vh, pero puede crecer si el contenido es largo */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
   position: relative;
   width: 100%;
-  overflow: hidden; /* Asegurar que no haya scroll interno */
 }
 
-/* Sin scroll - navegación solo con botones */
+/* Scroll suave dentro de cada sección */
+.section-wrapper {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar personalizada para scroll interno */
+.section-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.section-wrapper::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.section-wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-pink);
+  border-radius: 10px;
+}
+
+.section-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
 
 .content {
   max-width: 500px;
