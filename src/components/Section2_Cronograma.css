@@ -68,11 +68,15 @@
   left: -55px;
 }
 
-.timeline-image {
+.timeline-gif {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  max-width: 300px;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .timeline-content h3 {

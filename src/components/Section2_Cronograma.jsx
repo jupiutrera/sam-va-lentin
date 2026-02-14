@@ -109,17 +109,24 @@ const Section2_Cronograma = ({ onNext }) => {
               <div className="timeline-content">
                 <motion.div
                   className="timeline-icon"
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.2, rotate: 10 }}
                 >
-                  {item.image ? (
-                    <img src={item.image} alt={item.title} className="timeline-image" />
-                  ) : (
-                    item.icon
-                  )}
+                  {item.icon}
                 </motion.div>
                 <h3>{item.title}</h3>
                 <p className="date">{item.date}</p>
                 <p>{item.description}</p>
+                {item.image && (
+                  <motion.img
+                    src={item.image}
+                    alt={item.title}
+                    className="timeline-gif"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                  />
+                )}
               </div>
             </motion.div>
           ))}
