@@ -68,6 +68,13 @@
   left: -55px;
 }
 
+.timeline-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .timeline-content h3 {
   font-family: var(--font-title);
   color: var(--color-secondary);

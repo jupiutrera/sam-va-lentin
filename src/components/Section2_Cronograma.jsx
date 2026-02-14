@@ -9,35 +9,40 @@ const Section2_Cronograma = ({ onNext }) => {
       title: 'Primer Encuentro',
       date: '29 Noviembre 2025',
       description: 'Aunque haya sido un primer encuentro para el olvido, para mí será inolvidable.',
-      position: 'left'
+      position: 'left',
+      image: 'img/white-dog-shaking.gif'
     },
     {
       icon: '💕',
       title: 'Primera Cita',
       date: '5 Diciembre 2025',
       description: 'Nos dejamos todos los torreznos y nos pusimos a toser como tontos en el restaurante.',
-      position: 'right'
+      position: 'right',
+      image: 'img/idris-elba-coughing.gif'
     },
     {
       icon: '💝',
       title: 'Día Clave',
       date: '18 Diciembre 2025',
       description: 'Aquí fue el momento en el que nos empezamos a querer sin saberlo.',
-      position: 'left'
+      position: 'left',
+      image: 'img/stan-twt-skeleton-banging-shield.gif'
     },
     {
       icon: '💗',
       title: 'Primer "Te Quiero"',
       date: '20 Enero 2026',
       description: 'El primero de muchos, te quiero.',
-      position: 'right'
+      position: 'right',
+      image: 'img/squid-game-front-man.gif'
     },
     {
       icon: '🌟',
       title: 'Empezamos a Salir',
       date: '22 Enero 2026',
       description: 'Aunque no hay fecha concreta.',
-      position: 'left'
+      position: 'left',
+      image: 'img/choso-is-handing-over-the-rose-to-v0-tnutaef0vxhc1.webp'
     }
   ]
 
@@ -104,9 +109,13 @@ const Section2_Cronograma = ({ onNext }) => {
               <div className="timeline-content">
                 <motion.div
                   className="timeline-icon"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  whileHover={{ scale: 1.1 }}
                 >
-                  {item.icon}
+                  {item.image ? (
+                    <img src={item.image} alt={item.title} className="timeline-image" />
+                  ) : (
+                    item.icon
+                  )}
                 </motion.div>
                 <h3>{item.title}</h3>
                 <p className="date">{item.date}</p>
