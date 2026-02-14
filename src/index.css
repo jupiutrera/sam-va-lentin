@@ -27,13 +27,12 @@
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  overflow-x: hidden;
+  overflow: hidden; /* Deshabilitar scroll completamente */
   background: var(--color-cream);
 }
 
 html {
-  scroll-behavior: smooth;
-  overflow: hidden;
+  overflow: hidden; /* Deshabilitar scroll completamente */
 }
 
 /* ========================================
@@ -52,46 +51,24 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden; /* Sin scroll - solo navegación con botones */
 }
 
 /* ========================================
    Estilos Comunes para Secciones
    ======================================== */
 .section {
-  min-height: 100vh;
+  height: 100vh; /* Altura fija - sin scroll */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
   position: relative;
   width: 100%;
+  overflow: hidden; /* Asegurar que no haya scroll interno */
 }
 
-/* Permitir scroll suave en móvil */
-.section-wrapper {
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-}
-
-/* Scrollbar personalizada */
-.section-wrapper::-webkit-scrollbar {
-  width: 6px;
-}
-
-.section-wrapper::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.section-wrapper::-webkit-scrollbar-thumb {
-  background: var(--color-pink);
-  border-radius: 10px;
-}
-
-.section-wrapper::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
-}
+/* Sin scroll - navegación solo con botones */
 
 .content {
   max-width: 500px;
