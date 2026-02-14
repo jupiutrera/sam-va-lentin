@@ -30,7 +30,10 @@ const Section5_Quiz = () => {
   const submitQuiz = () => {
     let calculatedScore = 0
     quizData.forEach((question, index) => {
-      if (userAnswers[index] === question.correct) {
+      // Si correct es 999, todas las respuestas son correctas
+      if (question.correct === 999) {
+        calculatedScore++
+      } else if (userAnswers[index] === question.correct) {
         calculatedScore++
       }
     })

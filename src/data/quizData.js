@@ -1,27 +1,32 @@
 export const quizData = [
   {
+    question: "¿Cuál es mi inicial de agua favorito?",
+    options: ["Mudkip 💧", "Squirtle 🐢", "Piplup 🐧", "Quaxly 🦆"],
+    correct: 0
+  },
+  {
     question: "¿Cuál es mi comida favorita?",
-    options: ["Pizza 🍕", "Sushi 🍣", "Pasta 🍝", "Hamburguesa 🍔"],
-    correct: 0
-  },
-  {
-    question: "¿Cuál es mi color favorito?",
-    options: ["Azul 💙", "Rojo ❤️", "Verde 💚", "Negro 🖤"],
-    correct: 0
-  },
-  {
-    question: "¿Mi género de película favorito?",
-    options: ["Acción 💥", "Comedia 😂", "Romance 💕", "Ciencia Ficción 🚀"],
+    options: ["Sushi 🍣", "Pizza 🍕", "Entrecot 🥩", "No sé 🤷"],
     correct: 3
   },
   {
-    question: "¿Cuál es mi pasatiempo favorito?",
-    options: ["Videojuegos 🎮", "Deportes ⚽", "Leer 📚", "Cocinar 👨‍🍳"],
+    question: "¿Qué he estudiado?",
+    options: [
+      "Administración de Sistemas Informáticos en Red",
+      "Desarrollo de Aplicaciones Web",
+      "Desarrollo de Aplicaciones Multiplataforma",
+      "Administración de Bases de Datos"
+    ],
     correct: 0
   },
   {
-    question: "¿Qué prefiero para una cita?",
-    options: ["Cena romántica 🍽️", "Cine 🎬", "Paseo por el parque 🌳", "Quedarnos en casa 🏠"],
-    correct: 3
+    question: "¿Cuál es mi número de DNI?",
+    options: ["12345678A", "87654321B", "11223344C", "99887766D"],
+    correct: -1
+  },
+  {
+    question: "¿Cuánto te quiero?",
+    options: ["Mucho 💕", "Muchísimo 💖", "Muchísísimo 💗", "Como la trucha al trucho 🐟"],
+    correct: 999  // Todas son correctas
   }
 ]
