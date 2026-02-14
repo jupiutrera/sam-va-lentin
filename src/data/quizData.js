@@ -2,10 +2,10 @@ export const quizData = [
   {
     question: "¿Cuál es mi inicial de agua favorito?",
     options: [
-      { text: "Mudkip", image: "/img/mudkip.png" },
-      { text: "Squirtle", image: "/img/Squirtle.webp" },
-      { text: "Piplup", image: "/img/piplup.png" },
-      { text: "Quaxly", image: "/img/quaxly.png" }
+      { text: "Mudkip", image: "img/mudkip.png" },
+      { text: "Squirtle", image: "img/Squirtle.webp" },
+      { text: "Piplup", image: "img/piplup.png" },
+      { text: "Quaxly", image: "img/quaxly.png" }
     ],
     correct: 0,
     hasImages: true
