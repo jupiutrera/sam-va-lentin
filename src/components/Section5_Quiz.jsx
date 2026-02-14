@@ -53,22 +53,22 @@ const Section5_Quiz = () => {
   }
 
   const getResultMessage = () => {
-    if (score === 4) {
+    if (score === 9) {
       return {
         title: "¡Perfecto! 💖",
         message: "Las personas perfectas sacan puntuaciones perfectas"
       }
-    } else if (score === 3) {
+    } else if (score >= 7) {
       return {
         title: "¡Bien! 💕",
         message: "No está mal, nena"
       }
-    } else if (score === 2) {
+    } else if (score >= 4) {
       return {
         title: "Mmm... 💗",
         message: "No me escuchas..."
       }
-    } else if (score === 1) {
+    } else if (score >= 2) {
       return {
         title: "¿En serio? 💔",
         message: "¿Me vacilas?"
