@@ -7,36 +7,36 @@ const Section2_Cronograma = ({ onNext }) => {
     {
       icon: '❤️',
       title: 'Primer Encuentro',
-      date: 'Enero 2024',
-      description: 'El día que nuestras miradas se cruzaron por primera vez y supe que algo especial comenzaba.',
+      date: '29 Noviembre 2025',
+      description: 'Aunque haya sido un primer encuentro para el olvido, para mí será inolvidable',
       position: 'left'
     },
     {
       icon: '💕',
       title: 'Primera Cita',
-      date: 'Febrero 2024',
-      description: 'Una tarde mágica llena de risas, nervios y la certeza de que quería verte de nuevo.',
+      date: '5 Diciembre 2025',
+      description: 'Nos dejamos todos los torreznos y nos pusimos a toser como tontos en el restaurante',
       position: 'right'
     },
     {
-      icon: '💋',
-      title: 'Primer Beso',
-      date: 'Marzo 2024',
-      description: 'Bajo las estrellas, el momento perfecto que quedará grabado en mi memoria para siempre.',
+      icon: '💝',
+      title: 'Día Clave',
+      date: '18 Diciembre 2025',
+      description: 'Aquí fue el momento en el que nos empezamos a querer sin saberlo',
       position: 'left'
     },
     {
-      icon: '✈️',
-      title: 'Primer Viaje Juntos',
-      date: 'Junio 2024',
-      description: 'Aventuras, descubrimientos y la felicidad de explorar el mundo a tu lado.',
+      icon: '💗',
+      title: 'Primer "Te Quiero"',
+      date: '20 Enero 2026',
+      description: 'El primero de muchos, te quiero',
       position: 'right'
     },
     {
       icon: '🌟',
-      title: 'Cada Día Contigo',
-      date: 'Presente',
-      description: 'Cada momento a tu lado es especial, cada día contigo es un regalo.',
+      title: 'Empezamos a Salir',
+      date: '22 Enero 2026',
+      description: 'Aunque no hay fecha concreta',
       position: 'left'
     }
   ]

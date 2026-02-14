@@ -91,7 +91,7 @@ const Section1_Inicio = ({ onNext }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
         >
-          Continuar ❤️
+          Empezar ❤️
         </motion.button>
       </div>
     </section>
