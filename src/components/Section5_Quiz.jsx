@@ -19,8 +19,6 @@ const Section5_Quiz = () => {
 
   const isAnswerCorrect = (questionIndex, answerIndex) => {
     const question = quizData[questionIndex]
-    if (question.correct === 999) return true
-    if (question.correct === -1) return false
     return answerIndex === question.correct
   }
 
@@ -46,10 +44,7 @@ const Section5_Quiz = () => {
   const submitQuiz = () => {
     let calculatedScore = 0
     quizData.forEach((question, index) => {
-      // Si correct es 999, todas las respuestas son correctas
-      if (question.correct === 999) {
-        calculatedScore++
-      } else if (userAnswers[index] === question.correct) {
+      if (userAnswers[index] === question.correct) {
         calculatedScore++
       }
     })
@@ -58,32 +53,30 @@ const Section5_Quiz = () => {
   }
 
   const getResultMessage = () => {
-    const percentage = (score / quizData.length) * 100
-
-    if (percentage === 100) {
+    if (score === 4) {
       return {
         title: "¡Perfecto! 💖",
-        message: "¡Me conoces a la perfección! Definitivamente eres mi persona favorita. Nadie me entiende como tú."
+        message: "Las personas perfectas sacan puntuaciones perfectas"
       }
-    } else if (percentage >= 80) {
+    } else if (score === 3) {
       return {
-        title: "¡Excelente! 💕",
-        message: "¡Casi perfecto! Me conoces muy bien. Está claro que prestas atención a los detalles."
+        title: "¡Bien! 💕",
+        message: "No está mal, nena"
       }
-    } else if (percentage >= 60) {
+    } else if (score === 2) {
       return {
-        title: "¡Muy bien! 💗",
-        message: "¡Nada mal! Conoces lo esencial sobre mí. Seguiremos descubriéndonos juntos."
+        title: "Mmm... 💗",
+        message: "No me escuchas..."
       }
-    } else if (percentage >= 40) {
+    } else if (score === 1) {
       return {
-        title: "¡Buen intento! 💝",
-        message: "Aún nos queda mucho por descubrir el uno del otro, ¡y eso es emocionante!"
+        title: "¿En serio? 💔",
+        message: "¿Me vacilas?"
       }
     } else {
       return {
-        title: "¡Hay que conocerse más! 💓",
-        message: "Parece que tenemos muchas conversaciones pendientes. ¡Me encanta la idea de que me conozcas mejor!"
+        title: "😬",
+        message: "tenemos que hablar..."
       }
     }
   }
