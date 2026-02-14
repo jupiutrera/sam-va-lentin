@@ -21,11 +21,11 @@ const Section3_Pregunta = ({ onNext }) => {
   ]
 
   const moveButton = () => {
-    // Calcular límites de la pantalla
-    const maxX = window.innerWidth * 0.35  // 35% del ancho
-    const maxY = window.innerHeight * 0.25 // 25% del alto
+    // Calcular límites de la pantalla (mucho más amplio)
+    const maxX = window.innerWidth * 0.8   // 80% del ancho
+    const maxY = window.innerHeight * 0.6  // 60% del alto
 
-    // Generar posición aleatoria
+    // Generar posición aleatoria en cualquier dirección
     const newX = (Math.random() - 0.5) * maxX
     const newY = (Math.random() - 0.5) * maxY
 
@@ -109,9 +109,9 @@ const Section3_Pregunta = ({ onNext }) => {
                 opacity: noOpacity
               }}
               transition={{
-                type: 'spring',
-                stiffness: 300,
-                damping: 20
+                type: 'tween',
+                duration: 0.15,
+                ease: 'easeOut'
               }}
             >
               No
